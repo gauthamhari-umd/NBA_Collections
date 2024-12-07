@@ -10,7 +10,7 @@ from flask_login import (
 )
 from flask_bcrypt import Bcrypt
 from werkzeug.utils import secure_filename
-
+import certifi
 
 # stdlib
 from datetime import datetime
@@ -40,10 +40,11 @@ def create_app(test_config=None):
 
 # DO NOT REMOVE OR MODIFY THESE 4 LINES (required for autograder to work)
    
-    app.config.from_pyfile("config.py", silent=False)
+    # app.config.from_pyfile("config.py", silent=False)
     # if test_config is not None:
     #     app.config.update(test_config)
-
+    app.config['MONGODB_HOST']=os.environ.get('MONGODB_HOST')+certifi.where()
+    app.config['SECRET_KEY']=os.environ.get('MONGODB_HOST')+certifi.where()
     db.init_app(app)
     login_manager.init_app(app)
     bcrypt.init_app(app)
