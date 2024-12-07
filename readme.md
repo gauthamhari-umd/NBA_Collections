@@ -1,13 +1,13 @@
-Q1 Description of your final project idea:
+**Q1 Description of your final project idea:**
 
 I will create an NBA Player Collection app where users can log on and create collections of their favorite players in the NBA. They will be able to search up players through a search functionality on the home page and be able to add it to their collections. Users can create and delete multiple collections by specifying the size of collections.
 
-Q2 Describe what functionality will only be available to logged-in users:
+**Q2 Describe what functionality will only be available to logged-in users:**
 
 All users will be able to search players and view statistics. Logged-in users will be able to create, delete, and add players to their collections. 
 
 
-Q3 List and describe at least 4 forms:
+**Q3 List and describe at least 4 forms:**
 
 CreateCollectionForm: Users are able to create collections, so this form is used to specify the name of the collection and the size of the collection.
 
