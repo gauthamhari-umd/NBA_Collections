@@ -36,9 +36,11 @@ def custom_404(e):
 def create_app(test_config=None):
     app = Flask(__name__)
 
-    app.config.from_pyfile("config.py", silent=False)
-    if test_config is not None:
-        app.config.update(test_config)
+   
+
+# DO NOT REMOVE OR MODIFY THESE 4 LINES (required for autograder to work)
+    app.config['MONGO_URI'] = os.getenv('MONGODB_HOST')
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
     db.init_app(app)
     login_manager.init_app(app)
