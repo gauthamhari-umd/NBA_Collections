@@ -1,0 +1,127 @@
+{% extends "header.html" %} {% block content %}
+
+{% if error_msg %}
+  <b class="text-red-400">
+  {{ error_msg }}
+</b>
+{% endif %}
+
+{% if player %}
+
+{# Display card for the player details #}
+  <div class="player-container">
+   <div style="padding-top: 100px;">
+    <ul class="player-info">
+      <h1 class="text-4xl font-bold">{{ player.player_name }}</h1>
+      <img class="player-img" alt="alt text" src="{{ player.player_headshot }}" />
+      <li class="opacity-40 md:px-4"><b>Team</b> {{ player.player_team }}</li>
+      <li class="opacity-40 md:px-4"><b>Age</b> {{ player.player_age }}</li>
+      <li class="opacity-40 md:px-4"><b>Latest Season</b> {{ player.player_latest_season }}</li>
+
+    </ul>
+  </div>
+
+
+  <table class="table-auto w-full border-collapse border border-gray-300">
+    <thead>
+      <tr class="bg-gray-100">
+        <th class="border border-gray-300 px-4 py-2 text-left">Statistics</th>
+        <th class="border border-gray-300 px-4 py-2 text-left">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Games Played (GP)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_gp }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Games Started (GS)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_gs }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Minutes Played (MIN)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_min }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Field Goals Made (FGM)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_fgm }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Field Goals Attempted (FGA)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_fga }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Field Goal Percentage (FG%)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_fgpct }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">3-Point Field Goals Made (FG3M)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_fg3m }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">3-Point Field Goals Attempted (FG3A)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_fg3a }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">3-Point Field Goal Percentage (FG3%)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_fg3pct }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Free Throws Made (FTM)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_ftm }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Free Throws Attempted (FTA)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_fta }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Free Throw Percentage (FT%)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_ft_pct }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Offensive Rebounds (OREB)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_oreb }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Defensive Rebounds (DREB)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_dreb }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Total Rebounds (REB)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_reb }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Assists (AST)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_ast }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Steals (STL)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_stl }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Blocks (BLK)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_blk }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Turnovers (TOV)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_tov }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Personal Fouls (PF)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_pf }}</td>
+      </tr>
+      <tr>
+        <td class="border border-gray-300 px-4 py-2 text-center">Total Points (PTS)</td>
+        <td class="border border-gray-300 px-4 py-2 text-center">{{ player.player_pts }}</td>
+      </tr>
+    </tbody>
+  </table>
+  {% if current_user.is_authenticated %}
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div style="color: black;">{{ form.collection(class="form-select") }}</div>
+    <div>{{ form.submit(class="review-button") }}
+</form>
+  {% endif %}
+</div>
+  {% endif %} {% endblock content %}

@@ -1,0 +1,39 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="container mx-auto w-full md:w-2/3 lg:w-1/3">
+    <h2 class="text-2xl font-bold text-center">Log In</h2>
+</div>
+<div class="container mx-auto w-full md:w-2/3 lg:w-1/3 text-center my-2">
+    If you don't have an account, <a class="text-blue-400 duration-150 hover:text-blue-200 underline" href="{{ url_for('users.register') }}">register here</a>.
+</div>
+<div class="container mx-auto w-full md:w-2/3 lg:w-1/3">
+
+    <form class="review-form" method="POST" action="">
+        {{ form.csrf_token }}
+        <div class="form-group review-input">
+            {{ form.name.label }}
+            {{ form.name(class="form-content") }}
+            {% if form.name.errors %}
+            <div class="error" role="alert">
+                {% for error in form.username.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group review-input">
+            {{ form.size.label }}
+            {{ form.size(class="form-content") }}
+            {% if form.size.errors %}
+            <div class="error" role="alert">
+                {% for error in form.password.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {{ form.submit(class="review-button") }}
+    </form>
+
+</div>
+{% endblock %}

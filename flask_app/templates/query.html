@@ -1,0 +1,23 @@
+{% extends "header.html" %} {% block content %}
+
+{% if error_msg %}
+<b class="text-red-400">
+  {{ error_msg }}
+</b>
+{% endif %}
+
+<div class="results-container">
+  <div class="decoration-container">
+    <div class="decoration"></div>
+  </div>
+  {% for result in results %}
+  <a href="{{ url_for('players.player_detail', player_id=result.id,player_name=result.full_name) }}"
+    class="group player-card">
+    <img src="{{ result.player_headshot }}" class="player-img" alt="missing" />
+    <h5 class="player-card-content text-center"> {{ result.full_name }}
+    </h5>
+  </a>
+  {% endfor %}
+</div>
+
+{% endblock %}
