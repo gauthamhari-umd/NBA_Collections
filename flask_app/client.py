@@ -78,8 +78,6 @@ class playerClient(object):
 if __name__ == "__main__":
     import os
 
-    client = playerClient(os.environ.get("OMDB_API_KEY"))
-
     players = client.search("guardians")
 
     for player in players:
