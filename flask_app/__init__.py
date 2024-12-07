@@ -39,7 +39,7 @@ def create_app(test_config=None):
    
 
 # DO NOT REMOVE OR MODIFY THESE 4 LINES (required for autograder to work)
-    app.config['MONGODB_URI'] = os.getenv('MONGODB_URI')
+    app.config['MONGO_URI'] = os.getenv('MONGODB_URI')
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
     db.init_app(app)
