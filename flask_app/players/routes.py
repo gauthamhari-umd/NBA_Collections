@@ -45,22 +45,21 @@ def query_results(query):
 def player_detail(player_id,player_name):
     try:
         result = player_client.retrieve_player_by_id(player_id,player_name)
-    except Exception as e:
-        return render_template("404.html", error_msg=str(e))
-    form=None
-    if current_user.is_authenticated:
-        form = ChooseCollectionForm()
+        if current_user.is_authenticated:
+            form = ChooseCollectionForm()
 
-        collections = Collection.objects(user=current_user._get_current_object())
-        form.collection.choices = [(collection.collection_name, collection.collection_name) for collection in collections]
-        if form.validate_on_submit():
-            selected_choice = form.collection.data
-            collection = Collection.objects.get(collection_name=selected_choice)
-        
-            if len(collection.list_of_players)<int(collection.size) and result not in collection.list_of_players:
-                    collection.list_of_players.append(result)
-                    collection.save()
-            return redirect(url_for("players.index"))
+            collections = Collection.objects(user=current_user._get_current_object())
+            form.collection.choices = [(collection.collection_name, collection.collection_name) for collection in collections]
+            if form.validate_on_submit():
+                selected_choice = form.collection.data
+                collection = Collection.objects.get(collection_name=selected_choice)
+            
+                if len(collection.list_of_players)<int(collection.size) and result not in collection.list_of_players:
+                        collection.list_of_players.append(result)
+                        collection.save()
+                return redirect(url_for("players.index"))
+    except Exception as e:
+        return render_template("404.html", error_msg="HELLO !!!")
 
         # selected_collection = form.collection.data
         # collections.update_one(
