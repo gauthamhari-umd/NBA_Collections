@@ -44,7 +44,8 @@ def query_results(query):
 @players.route("/players/<player_id>/<player_name>", methods=["GET","POST"])
 def player_detail(player_id,player_name):
     try:
-        result = player_client.retrieve_player_by_id(player_id,player_name)
+        # result = player_client.retrieve_player_by_id(player_id,player_name)
+        result={"player_latest_season":"2024"}
         form=None
         if current_user.is_authenticated:
             form = ChooseCollectionForm()
@@ -63,7 +64,7 @@ def player_detail(player_id,player_name):
         "player_detail.html", player=result,form=form
     )
     except Exception as e:
-        return render_template("404.html", error_msg=str(e))
+        return render_template("404.html", error_msg=str)
 
         # selected_collection = form.collection.data
         # collections.update_one(
