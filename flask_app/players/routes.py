@@ -45,6 +45,7 @@ def query_results(query):
 def player_detail(player_id,player_name):
     try:
         result = player_client.retrieve_player_by_id(player_id,player_name)
+        form=None
         if current_user.is_authenticated:
             form = ChooseCollectionForm()
 
@@ -58,8 +59,11 @@ def player_detail(player_id,player_name):
                         collection.list_of_players.append(result)
                         collection.save()
                 return redirect(url_for("players.index"))
+        return render_template(
+        "player_detail.html", player=result,form=form
+    )
     except Exception as e:
-        return render_template("404.html", error_msg="HELLO !!!")
+        return render_template("404.html", error_msg=str(e))
 
         # selected_collection = form.collection.data
         # collections.update_one(
@@ -71,9 +75,7 @@ def player_detail(player_id,player_name):
 
    
 
-    return render_template(
-        "player_detail.html", player=result,form=form
-    )
+   
 
 
 @players.route("/user/<username>")

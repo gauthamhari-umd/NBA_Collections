@@ -70,17 +70,3 @@ class playerClient(object):
             return easier_json 
         except Exception as e:
             raise Exception(f"Error retrieving player stats: {str(e)}")  
-
-
-
-
-## -- Example usage -- ###
-if __name__ == "__main__":
-    import os
-
-    players = client.search("guardians")
-
-    for player in players:
-        print(player)
-
-    print(len(players))
