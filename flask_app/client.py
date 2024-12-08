@@ -1,6 +1,7 @@
 import requests
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import playercareerstats
+from nba_api.stats.library.http import NBAStatsHTTP
 import json
 
 
@@ -29,10 +30,8 @@ class playerClient(object):
         return players_by_name
 
     def retrieve_player_by_id(self, player_id,player_name):
-        """
-        Use to obtain a player object representing the player identified by
-        the supplied imdb_id
-        """
+        NBAStatsHTTP.timeout = 60  
+
         try: 
             player_stats = playercareerstats.PlayerCareerStats(player_id=player_id).get_dict()
             regular_seasons_data = [item for item in player_stats["resultSets"] if item["name"] == "SeasonTotalsRegularSeason"][0]
