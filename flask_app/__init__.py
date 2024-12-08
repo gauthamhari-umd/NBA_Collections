@@ -44,7 +44,8 @@ def create_app(test_config=None):
     # if test_config is not None:
     #     app.config.update(test_config)
     app.config['MONGODB_HOST']=os.environ.get('MONGODB_HOST')+certifi.where()
-    app.config['SECRET_KEY']=os.environ.get('MONGODB_HOST')+certifi.where()
+    app.config['SECRET_KEY']=os.environ.get('SECRET_KEY')
+
     db.init_app(app)
     login_manager.init_app(app)
     bcrypt.init_app(app)
@@ -55,7 +56,7 @@ def create_app(test_config=None):
 
     
     app.register_error_handler(404, custom_404)
-
+    
     login_manager.login_view = "users.login"
 
     return app
