@@ -1,6 +1,6 @@
 
-[https://drive.google.com/file/d/15NtEj2Nxh-nf2FH9W0ER5edFFS5A5Z2l/view?usp=sharing
-]([url](https://drive.google.com/file/d/15NtEj2Nxh-nf2FH9W0ER5edFFS5A5Z2l/view?usp=sharing))
+Link to Video
+[https://drive.google.com/file/d/15NtEj2Nxh-nf2FH9W0ER5edFFS5A5Z2l/view?usp=sharing](https://drive.google.com/file/d/15NtEj2Nxh-nf2FH9W0ER5edFFS5A5Z2l/view?usp=sharing)
 
 Deployment on Vercel:[https://nba-collections.vercel.app/](https://nba-collections.vercel.app/)
 
