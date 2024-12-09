@@ -14,13 +14,6 @@ class playerClient(object):
         
 
     def search(self, search_string):
-        """
-        Searches the API for the supplied search_string, and returns
-        a list of Media objects if the search was successful, or the error response
-        if the search failed.
-
-        Only use this method if the user is using the search bar on the website.
-        """
         players_by_name=[]
         for player in self.players:
             if search_string.lower() in player['full_name'].lower():

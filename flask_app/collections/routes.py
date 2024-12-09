@@ -46,8 +46,8 @@ def create_collection():
 
         new_collection = Collection(
             collection_name=collection_name,
-            user=current_user,  # Associate the collection with the logged-in user
-            size=collection_size # You can define a current_time function to set the current timestamp
+            user=current_user,  
+            size=collection_size 
         )
         
         new_collection.save()
