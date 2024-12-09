@@ -1,8 +1,10 @@
 Deployment on Vercel: [https://nba-collections.vercel.app/](https://nba-collections.vercel.app/)
+
 -> Most functionality (registering/logging in users, creating collections, deleting collections) is accessbile on Vercel deployment 
 
 Link to Video
 [https://drive.google.com/file/d/15NtEj2Nxh-nf2FH9W0ER5edFFS5A5Z2l/view?usp=sharing](https://drive.google.com/file/d/15NtEj2Nxh-nf2FH9W0ER5edFFS5A5Z2l/view?usp=sharing)
+
 -> Functionality that is demonstrated in the video: Viewing player cards, adding players to collections, logged in users adding players to collections versus regular users being unable to, etc. 
 
 **** API doesn't work when deployed, I've attached a video to showcase the functionality (approved by Chuck on Discord)***
