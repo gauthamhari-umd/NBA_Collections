@@ -1,3 +1,8 @@
+
+Deployment on Vercel:[https://nba-collections.vercel.app/](https://nba-collections.vercel.app/)
+
+**** API doesn't work when deployed, I've attached a video to showcase the functionality (approved by Chuck on Discord)***
+
 **Q1 Description of your final project idea:**
 
 ```
