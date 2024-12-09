@@ -42,7 +42,7 @@ def create_app(test_config=None):
    
     # app.config.from_pyfile("config.py", silent=False)
     # if test_config is not None:
-    #     app.config.update(test_config)
+    # #     app.config.update(test_config)
     app.config['MONGODB_HOST']=os.environ.get('MONGODB_HOST')+certifi.where()
     app.config['SECRET_KEY']=os.environ.get('SECRET_KEY')
 

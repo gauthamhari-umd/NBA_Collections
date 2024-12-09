@@ -2,13 +2,11 @@ import base64,io
 from io import BytesIO
 from flask import Blueprint, render_template, url_for, redirect, request, flash
 from flask_login import current_user
-from nba_api.stats.endpoints import playercareerstats
 
 from .. import player_client
 from ..forms import  SearchForm,ChooseCollectionForm
 from ..models import User, Review,Collection
 from ..utils import current_time
-from nba_api.stats.static import players
 
 players = Blueprint("players", __name__)
 
@@ -46,10 +44,7 @@ def query_results(query):
 @players.route("/players/<player_id>/<player_name>", methods=["GET","POST"])
 def player_detail(player_id,player_name):
     try:
-        player_stats = playercareerstats.PlayerCareerStats(player_id=player_id).get_dict()
-        regular_seasons_data = [item for item in player_stats["resultSets"] if item["name"] == "SeasonTotalsRegularSeason"][0]
-        current_season_data = [item for item in regular_seasons_data['rowSet']][-1]
-        result={"a":"a"}
+        result = player_client.retrieve_player_by_id(player_id,player_name)
         # result={"player_latest_season":"2024"}
         form=None
         if current_user.is_authenticated:
